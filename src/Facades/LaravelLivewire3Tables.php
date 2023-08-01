@@ -11,6 +11,6 @@ class LaravelLivewire3Tables extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Rochi88\LaravelLivewire3Tables\LaravelLivewire3Tables::class;
+        return \Rochi88\LaravelLivewire3Tables\TableComponent::class;
     }
 }
