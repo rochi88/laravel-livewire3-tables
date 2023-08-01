@@ -37,7 +37,7 @@
                         <x-livewire3-tables::table.tr>
                             @foreach($columns as $column)
                             <x-livewire3-tables::table.td>
-                                {{ Arr::get($model->toArray()) }}
+                                {{ Arr::get($model->toArray(), $column->attribute) }}
                             </x-livewire3-tables::table.td>
                             @endforeach
                         </x-livewire3-tables::table.tr>
