@@ -7,18 +7,23 @@ use Illuminate\Support\Str;
 /**
  * @property string $heading
  * @property string $attribute
- * @property boolean $searchable
- * @property boolean $sortable
+ * @property bool $searchable
+ * @property bool $sortable
  * @property callable $sortCallback
  * @property string $view
  */
 class Column
 {
     protected $heading;
+
     protected $attribute;
+
     protected $searchable = false;
+
     protected $sortable = false;
+
     protected $sortCallback;
+
     protected $view;
 
     public function __construct($heading, $attribute)
@@ -40,24 +45,28 @@ class Column
     public function searchable()
     {
         $this->searchable = true;
+
         return $this;
     }
 
     public function sortable()
     {
         $this->sortable = true;
+
         return $this;
     }
 
     public function sortUsing(callable $callback)
     {
         $this->sortCallback = $callback;
+
         return $this;
     }
 
     public function view($view)
     {
         $this->view = $view;
+
         return $this;
     }
 }
