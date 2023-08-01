@@ -13,7 +13,7 @@ trait ColumnUtilities
     {
         $parts = explode('.', $attribute);
 
-        return (object)[
+        return (object) [
             'attribute' => array_pop($parts),
             'name' => implode('.', $parts),
         ];
@@ -37,10 +37,10 @@ trait ColumnUtilities
                     $related = $model->getRelated();
                     $table = $related->getTable();
                     $tablePK = $related->getForeignKey();
-                    $foreign = $pivot . '.' . $tablePK;
+                    $foreign = $pivot.'.'.$tablePK;
                     $other = $related->getQualifiedKeyName();
 
-                    $last_query->addSelect($table . '.' . $attribute);
+                    $last_query->addSelect($table.'.'.$attribute);
                     $query->leftJoin($table, $foreign, $other);
 
                     break;
@@ -65,6 +65,6 @@ trait ColumnUtilities
             $last_query = $model->getQuery();
         }
 
-        return $table . '.' . $attribute;
+        return $table.'.'.$attribute;
     }
 }

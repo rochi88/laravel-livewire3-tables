@@ -2,9 +2,9 @@
 
 namespace Rochi88\LaravelLivewire3Tables;
 
+use Rochi88\LaravelLivewire3Tables\Commands\MakeTablesCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Rochi88\LaravelLivewire3Tables\Commands\MakeTablesCommand;
 
 class LaravelLivewire3TablesServiceProvider extends PackageServiceProvider
 {

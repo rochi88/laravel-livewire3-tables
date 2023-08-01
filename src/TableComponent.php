@@ -4,26 +4,38 @@ namespace Rochi88\LaravelLivewire3Tables;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use Rochi88\LaravelLivewire3Tables\Traits\ColumnUtilities;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Rochi88\LaravelLivewire3Tables\Traits\ColumnUtilities;
 
 class TableComponenet extends Component
 {
     use WithPagination, ColumnUtilities;
 
     public $table_class;
+
     public $thead_class;
+
     public $header_view;
+
     public $footer_view;
+
     public $search;
+
     public $checkbox;
+
     public $checkbox_side;
+
     public $checkbox_attribute = 'id';
+
     public $checkbox_all = false;
+
     public $checkbox_values = [];
+
     public $sort_attribute = 'id';
+
     public $sort_direction = 'desc';
+
     public $per_page;
 
     public function mount()
@@ -34,7 +46,7 @@ class TableComponenet extends Component
     public function setTableProperties()
     {
         foreach (['table_class', 'thead_class', 'checkbox', 'checkbox_side', 'per_page'] as $property) {
-            $this->$property = $this->$property ?? config('laravel-livewire-tables.' . $property);
+            $this->$property = $this->$property ?? config('laravel-livewire-tables.'.$property);
         }
     }
 
@@ -97,15 +109,13 @@ class TableComponenet extends Component
                             $relationship = $this->relationship($column->attribute);
 
                             $query->orWhereHas($relationship->name, function (Builder $query) use ($relationship) {
-                                $query->where($relationship->attribute, 'like', '%' . $this->search . '%');
+                                $query->where($relationship->attribute, 'like', '%'.$this->search.'%');
                             });
-                        }
-                        else if (Str::endsWith($column->attribute, '_count')) {
+                        } elseif (Str::endsWith($column->attribute, '_count')) {
                             // No clean way of using having() with pagination aggregation, do not search counts for now.
                             // If you read this and have a good solution, feel free to submit a PR :P
-                        }
-                        else {
-                            $query->orWhere($query->getModel()->getTable() . '.' . $column->attribute, 'like', '%' . $this->search . '%');
+                        } else {
+                            $query->orWhere($query->getModel()->getTable().'.'.$column->attribute, 'like', '%'.$this->search.'%');
                         }
                     }
                 }
@@ -115,8 +125,7 @@ class TableComponenet extends Component
         if (Str::contains($this->sort_attribute, '.')) {
             $relationship = $this->relationship($this->sort_attribute);
             $sort_attribute = $this->attribute($models, $relationship->name, $relationship->attribute);
-        }
-        else {
+        } else {
             $sort_attribute = $this->sort_attribute;
         }
 
@@ -138,7 +147,7 @@ class TableComponenet extends Component
 
         if ($this->checkbox_all) {
             $this->models()->each(function ($model) {
-                $this->checkbox_values[] = (string)$model->{$this->checkbox_attribute};
+                $this->checkbox_values[] = (string) $model->{$this->checkbox_attribute};
             });
         }
     }
@@ -152,8 +161,7 @@ class TableComponenet extends Component
     {
         if ($this->sort_attribute != $attribute) {
             $this->sort_direction = 'asc';
-        }
-        else {
+        } else {
             $this->sort_direction = $this->sort_direction == 'asc' ? 'desc' : 'asc';
         }
 
