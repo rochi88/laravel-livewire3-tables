@@ -12,11 +12,11 @@
         @else
             <x-livewire3-tables::table>
                 <x-slot name="thead">
-                    @if($checkbox)
+                    {{-- @if($checkbox)
                         <x-livewire3-tables::table.th>
                             <x-livewire3-tables::checkbox-all />
                         </x-livewire3-tables::table.th>
-                    @endif
+                    @endif --}}
 
                     @foreach($columns as $column)
                         <x-livewire3-tables::table.th>
@@ -35,7 +35,7 @@
                         </x-livewire3-tables::table.tr>
                     @empty
                         <x-livewire3-tables::table.tr>
-                               <x-livewire3-tables::table.td>
+                            <x-livewire3-tables::table.td>
                                 {{ __('No results found') }}
                             </x-livewire3-tables::table.td> 
                         </x-livewire3-tables::table.tr>
