@@ -13,17 +13,29 @@ class TableComponent extends Component
     use WithPagination, ColumnUtilities;
 
     public $table_class;
+
     public $thead_class;
+
     public $header_view;
+
     public $footer_view;
+
     public $search;
+
     public $checkbox;
+
     public $checkbox_side;
+
     public $checkbox_attribute = 'id';
+
     public $checkbox_all = false;
+
     public $checkbox_values = [];
+
     public $sort_attribute = 'id';
+
     public $sort_direction = 'desc';
+
     public $per_page;
 
     public function mount()
