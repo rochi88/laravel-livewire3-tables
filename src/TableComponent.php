@@ -8,7 +8,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Rochi88\LaravelLivewire3Tables\Traits\ColumnUtilities;
 
-class TableComponenet extends Component
+class TableComponent extends Component
 {
     use WithPagination, ColumnUtilities;
 
