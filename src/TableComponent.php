@@ -69,7 +69,7 @@ class TableComponent extends Component
 
     public function query()
     {
-        return \App\User::query();
+        return $this->query();
     }
 
     /**
@@ -77,28 +77,7 @@ class TableComponent extends Component
      */
     public function columns()
     {
-        return [
-            Column::make('ID')->searchable()->sortable(),
-            Column::make('Name')->searchable()->sortable(),
-            Column::make('Email')->searchable()->sortable(),
-            Column::make('Created At')->searchable()->sortable(),
-            Column::make('Updated At')->searchable()->sortable(),
-        ];
-    }
-
-    public function thClass($attribute)
-    {
-        return null;
-    }
-
-    public function trClass($model)
-    {
-        return null;
-    }
-
-    public function tdClass($attribute, $value)
-    {
-        return null;
+        return $this->columns();
     }
 
     public function models()
@@ -143,11 +122,6 @@ class TableComponent extends Component
     public function updatingSearch(): void
     {
         $this->resetPage();
-    }
-
-    public function updatedSearch()
-    {
-        $this->gotoPage(1);
     }
 
     public function updatedCheckboxAll()
