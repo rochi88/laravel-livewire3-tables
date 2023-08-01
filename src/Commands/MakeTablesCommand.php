@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class MakeTablesCommand extends Command
 {
-    public $signature = 'laravel-livewire3-tables';
+    public $signature = 'livewire3-tables';
 
     public $description = 'My command';
 

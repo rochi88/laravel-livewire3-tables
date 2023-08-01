@@ -46,7 +46,7 @@ class TableComponent extends Component
     public function setTableProperties()
     {
         foreach (['table_class', 'thead_class', 'checkbox', 'checkbox_side', 'per_page'] as $property) {
-            $this->$property = $this->$property ?? config('laravel-livewire3-tables.'.$property);
+            $this->$property = $this->$property ?? config('livewire3-tables.'.$property);
         }
     }
 
@@ -57,7 +57,7 @@ class TableComponent extends Component
 
     public function tableView()
     {
-        return view('laravel-livewire3-tables::table', [
+        return view('livewire3-tables::table', [
             'columns' => $this->columns(),
             'models' => $this->models()->paginate($this->per_page),
         ]);
