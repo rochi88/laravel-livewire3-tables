@@ -1,22 +1,23 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "rochi88/laravel-livewire3-tables",
+    "description": "This is my package laravel-livewire3-tables",
     "keywords": [
-        ":vendor_name",
+        "rochi88",
         "laravel",
-        ":package_slug"
+        "laravel-livewire3-tables"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/rochi88/laravel-livewire3-tables",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "rochi88",
+            "email": "raisul.me@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
+        "livewire/livewire": "^3.0@beta",
         "spatie/laravel-package-tools": "^1.14.0",
         "illuminate/contracts": "^10.0"
     },
@@ -35,13 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Rochi88\\LaravelLivewire3Tables\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Rochi88\\LaravelLivewire3Tables\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -61,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Rochi88\\LaravelLivewire3Tables\\LaravelLivewire3TablesServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelLivewire3Tables": "Rochi88\\LaravelLivewire3Tables\\Facades\\LaravelLivewire3Tables"
             }
         }
     },
