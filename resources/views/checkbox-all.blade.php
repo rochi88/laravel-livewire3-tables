@@ -1,3 +1,3 @@
-<th class="align-middle border-top-0" style="width: 1%;">
+<th class="flex items-center" style="width: 1%;">
     <input type="checkbox" wire:model="checkbox_all">
 </th>

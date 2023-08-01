@@ -1,11 +1,8 @@
 <div>
-    <div class="row justify-content-between">
+    <div class="flex flex-row justify-content-between">
         <div class="col-auto order-last order-md-first">
             <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-search"></i></span>
-                </div>
-                <input type="search" class="form-control" placeholder="{{ __('Search') }}" wire:model="search">
+                <input type="search" placeholder="{{ __('Search') }}" wire:model.live="search">
             </div>
         </div>
         @if($header_view)
@@ -15,7 +12,55 @@
         @endif
     </div>
 
-    <div class="card mb-3">
+    <div>
+        @if($models->isEmpty())
+            <div class="">
+                {{ __('No results to display.') }}
+            </div>
+        @else
+            <x-livewire3-tables::table>
+                <x-slot name="thead">
+                    @if($checkbox)
+                        <x-livewire3-tables::table.th>
+                            <x-livewire3-tables::checkbox-all />
+                        </x-livewire3-tables::table.th>
+                    @endif
+
+                    @foreach($columns as $column)
+                        <x-livewire3-tables::table.th>
+                            {{ $column->heading }}
+                        </x-livewire3-tables::table.th>
+                    @endforeach
+                </x-slot>
+                <x-livewire3-tables::table.tbody>
+                    @forelse($models as $model)
+                        <x-livewire3-tables::table.tr>
+                            @foreach($columns as $column)
+                            <x-livewire3-tables::table.td>
+                                {{ $value }}
+                            </x-livewire3-tables::table.td>
+                            @endforeach
+                        </x-livewire3-tables::table.tr>
+                    @empty
+                        <x-livewire3-tables::table.tr>
+                               <x-livewire3-tables::table.td>
+                                {{ __('No results found') }}
+                            </x-livewire3-tables::table.td> 
+                        </x-livewire3-tables::table.tr>
+                    @endforelse
+                </x-livewire3-tables::table.tbody>
+            </x-livewire3-tables::table>
+
+            <div class="p-4">
+                <div class="pt-3">
+                    {{ $models->links() }}
+                </div>
+            </div>
+        @endif
+    </div>
+     
+
+   <div class="card mb-3">
         @if($models->isEmpty())
             <div class="card-body">
                 {{ __('No results to display.') }}
@@ -27,7 +72,7 @@
                         <thead class="{{ $thead_class }}">
                         <tr>
                             @if($checkbox && $checkbox_side == 'left')
-                                @include('livewire3-tables::checkbox-all')
+                                @include('laravel-livewire-tables::checkbox-all')
                             @endif
 
                             @foreach($columns as $column)
@@ -49,7 +94,7 @@
                             @endforeach
 
                             @if($checkbox && $checkbox_side == 'right')
-                                @include('livewire3-tables::checkbox-all')
+                                @include('laravel-livewire-tables::checkbox-all')
                             @endif
                         </tr>
                         </thead>
@@ -57,7 +102,7 @@
                         @foreach($models as $model)
                             <tr class="{{ $this->trClass($model) }}">
                                 @if($checkbox && $checkbox_side == 'left')
-                                    @include('livewire3-tables::checkbox-row')
+                                    @include('laravel-livewire-tables::checkbox-row')
                                 @endif
 
                                 @foreach($columns as $column)
@@ -71,7 +116,7 @@
                                 @endforeach
 
                                 @if($checkbox && $checkbox_side == 'right')
-                                    @include('livewire3-tables::checkbox-row')
+                                    @include('laravel-livewire-tables::checkbox-row')
                                 @endif
                             </tr>
                         @endforeach
