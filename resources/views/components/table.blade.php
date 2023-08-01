@@ -7,7 +7,7 @@
     <table {{ $attributes->merge(['class' => $tableClasses]) }}>
         <x-livewire3-tables::table.thead>
             {{ $thead }}
-        <x-livewire3-tables::table.thead>
+        </x-livewire3-tables::table.thead>
 
         {{ $slot }}
 
