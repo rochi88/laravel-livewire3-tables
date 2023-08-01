@@ -72,7 +72,7 @@
                         <thead class="{{ $thead_class }}">
                         <tr>
                             @if($checkbox && $checkbox_side == 'left')
-                                @include('laravel-livewire3-tables::checkbox-all')
+                                @include('livewire3-tables::checkbox-all')
                             @endif
 
                             @foreach($columns as $column)
@@ -94,7 +94,7 @@
                             @endforeach
 
                             @if($checkbox && $checkbox_side == 'right')
-                                @include('laravel-livewire3-tables::checkbox-all')
+                                @include('livewire3-tables::checkbox-all')
                             @endif
                         </tr>
                         </thead>
@@ -102,7 +102,7 @@
                         @foreach($models as $model)
                             <tr class="{{ $this->trClass($model) }}">
                                 @if($checkbox && $checkbox_side == 'left')
-                                    @include('laravel-livewire3-tables::checkbox-row')
+                                    @include('livewire3-tables::checkbox-row')
                                 @endif
 
                                 @foreach($columns as $column)
@@ -116,7 +116,7 @@
                                 @endforeach
 
                                 @if($checkbox && $checkbox_side == 'right')
-                                    @include('laravel-livewire3-tables::checkbox-row')
+                                    @include('livewire3-tables::checkbox-row')
                                 @endif
                             </tr>
                         @endforeach
