@@ -20,7 +20,7 @@ class TableComponent extends Component
 
     public $footer_view;
 
-    public $search;
+    public $search = '';
 
     public $checkbox;
 
@@ -37,6 +37,10 @@ class TableComponent extends Component
     public $sort_direction = 'desc';
 
     public $per_page;
+
+    protected $listeners = [
+        'refreshDatatable' => '$refresh',
+    ];
 
     public function mount()
     {
@@ -134,6 +138,11 @@ class TableComponent extends Component
         }
 
         return $models->orderBy($sort_attribute, $this->sort_direction);
+    }
+
+    public function updatingSearch(): void
+    {
+        $this->resetPage();
     }
 
     public function updatedSearch()

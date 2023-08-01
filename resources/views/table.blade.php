@@ -1,20 +1,12 @@
 <div>
-    <div class="flex flex-row justify-content-between">
-        <div class="col-auto order-last order-md-first">
-            <div class="input-group mb-3">
-                <input type="search" placeholder="{{ __('Search') }}" wire:model.live="search">
-            </div>
+    <div class="flex flex-rox">
+        <div class="flex">
+            <input type="search" placeholder="{{ __('Search') }}" wire:model.live="search">
         </div>
-        @if($header_view)
-            <div class="col-md-auto mb-3">
-                @include($header_view)
-            </div>
-        @endif
     </div>
-
     <div>
         @if($models->isEmpty())
-            <div class="">
+            <div class="flex flex-row">
                 {{ __('No results to display.') }}
             </div>
         @else
@@ -58,7 +50,20 @@
             </div>
         @endif
     </div>
-     
+
+
+    {{-- <div class="flex flex-row justify-content-between">
+        <div class="col-auto order-last order-md-first">
+            <div class="input-group mb-3">
+                <input type="search" placeholder="{{ __('Search') }}" wire:model.live="search">
+            </div>
+        </div>
+        @if($header_view)
+            <div class="col-md-auto mb-3">
+                @include($header_view)
+            </div>
+        @endif
+    </div>     
 
    <div class="card mb-3">
         @if($models->isEmpty())
@@ -136,5 +141,5 @@
                 @include($footer_view)
             </div>
         @endif
-    </div>
+    </div> --}}
 </div>
